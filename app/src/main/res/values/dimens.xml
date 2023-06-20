@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_2dp">2dp</dimen>
+    <dimen name="img_size">100dp</dimen>
+    <dimen name="img_size_label">25dp</dimen>
+    <dimen name="dimen_4dp">4dp</dimen>
+</resources>

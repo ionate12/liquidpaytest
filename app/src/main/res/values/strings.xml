@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LiquidPayTest</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="qr_group_list_label">QR Group</string>
+    <string name="qr_group_error">Could not get QR data, please reload.</string>
+    <string name="qr_group_empty">No QR available.</string>
+    <string name="qr_image">QR Image</string>
+    <string name="all_providers">All Providers</string>
+</resources>

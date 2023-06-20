@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.liquidpaytest.presentation.ui.qrgrouplist.QrGroupListViewModel" />
+
+        <import type="com.example.liquidpaytest.presentation.core.UiState"/>
+    </data>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            isVisible="@{!(viewModel.uiState instanceof UiState.Loading) &amp;&amp; viewModel.qrGroupDatasource.empty}"
+            android:text="@{viewModel.qrGroupDatasource.empty ? @string/qr_group_empty : null}"
+            tools:text="Status Message"/>
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="ifContentScrolls"
+            app:isRefreshing="@{viewModel.uiState}"
+            app:swipeRefreshListener="@{() -> viewModel.loadData()}"
+            tools:context=".presentation.ui.qrgrouplist.QrGroupListFragment">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/qrGroupRv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_qr_group"
+                tools:itemCount="2"
+                android:clipToPadding="false"
+                android:paddingTop="@dimen/dimen_4dp"
+                android:paddingBottom="@dimen/dimen_4dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </FrameLayout>
+
+</layout>
